@@ -22,15 +22,16 @@
   --mono:"JetBrains Mono",SFMono-Regular,Consolas,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{max-width:100%; overflow-x:hidden; overflow-x:clip; -webkit-text-size-adjust:100%}
 body{
   margin:0; font-family:var(--font); font-weight:500; background:var(--carbon); color:var(--bone);
-  line-height:1.75; min-height:100vh; overflow-x:hidden;
+  line-height:1.75; min-height:100vh; max-width:100%; overflow-x:hidden; overflow-x:clip;
   -webkit-font-smoothing:antialiased;
 }
+svg{max-width:100%}
 [hidden]{display:none !important}
 /* === Bau mit Mahdi background: palette-only solid layers + opacity === */
-.bg{position:fixed; inset:0; z-index:-2; overflow:hidden; background:var(--carbon);}
+.bg{position:fixed; inset:0; z-index:-2; overflow:hidden; contain:strict; background:var(--carbon);}
 .bg-grid{position:absolute; inset:0;
   background-image:linear-gradient(var(--soot) 1px, transparent 1px),linear-gradient(90deg, var(--soot) 1px, transparent 1px);
   background-size:44px 44px; opacity:.55;
@@ -45,7 +46,7 @@ body{
 .bg-grain{position:absolute; inset:0; opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
 @keyframes drift{from{transform:translateY(-14px)}to{transform:translateY(16px)}}
-.wrap{max-width:1024px; margin:0 auto; padding:20px 20px 64px}
+.wrap{max-width:1024px; margin:0 auto; padding:20px 20px 64px; overflow-x:hidden; overflow-x:clip}
 /* top bar */
 .topbar{display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 4px 6px}
 .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:15px}
